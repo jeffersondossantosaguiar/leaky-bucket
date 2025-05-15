@@ -36,3 +36,25 @@ yarn-error.log*
 # Misc
 .DS_Store
 *.pem
+
+# Arquivos de configuração do TypeScript
+tsconfig.tsbuildinfo
+
+# Diretórios específicos de IDEs
+.vscode/
+.idea/
+
+# Arquivos de log
+*.log
+
+# Arquivos temporários
+*.tmp
+*.swp
+*.swo
+
+# Diretórios específicos de apps
+apps/api/dist/
+apps/web/dist/
+
+# Diretórios específicos de pacotes
+packages/*/dist/

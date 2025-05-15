@@ -1,18 +1,15 @@
 {
-  "name": "web",
+  "name": "@repo/web",
   "version": "0.1.0",
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack --port 3000",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint --max-warnings 0",
-    "check-types": "tsc --noEmit"
+    "dev": "vite --clearScreen false",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "lint": "eslint \"src/**/*.ts\""
   },
   "dependencies": {
-    "@repo/ui": "workspace:*",
-    "next": "^15.3.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
@@ -22,7 +19,11 @@
     "@types/node": "^22.15.3",
     "@types/react": "19.1.0",
     "@types/react-dom": "19.1.1",
+    "@vitejs/plugin-react": "^4.4.1",
     "eslint": "^9.26.0",
-    "typescript": "5.8.2"
+    "typescript": "5.8.2",
+    "vite": "^6.3.5",
+    "vite-plugin-eslint": "^1.8.1",
+    "vite-tsconfig-paths": "^5.1.4"
   }
 }
