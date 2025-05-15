@@ -1,13 +1,12 @@
-import Koa from "koa"
+import 'dotenv/config';
+import { createServer } from 'http';
+import app from './app.js';
+import { config } from './config.js';
 
-const app = new Koa()
+(async () => {
+  const server = createServer(app.callback());
 
-app.use(async (ctx) => {
-  ctx.body = "API Koa.js com TypeScript está funcionando! 2"
-})
-
-const PORT = process.env.PORT || 3000
-
-app.listen(PORT, () => {
-  console.log(`Servidor rodando em http://localhost:${PORT}`)
-})
+  server.listen(config.PORT, () => {
+    console.log(`server running at port ${config.PORT}`);
+  });
+})();
