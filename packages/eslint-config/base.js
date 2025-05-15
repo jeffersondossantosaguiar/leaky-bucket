@@ -23,8 +23,9 @@ export const config = [
       "padding-line-between-statements": [
         "error",
         { blankLine: "always", prev: "import", next: "*" },
-        { blankLine: "any", prev: "import", next: "import" }
-      ]
+        { blankLine: "any", prev: "import", next: "import" },
+      ],
+      "object-curly-spacing": ["error", "always"]
     }
   },
   {

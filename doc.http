@@ -1,0 +1,8 @@
+### Registrar um novo usuário
+POST http://localhost:3000/users/register
+Content-Type: application/json
+
+{
+  "email": "jefferson@example.com",
+  "password": "senhaSegura123"
+}

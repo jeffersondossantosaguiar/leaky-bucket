@@ -1,19 +1,13 @@
 import { bodyParser } from '@koa/bodyparser';
 import cors from '@koa/cors';
-import Router from '@koa/router';
 import Koa from 'koa';
+import userRoutes from './routes/user.routes.js';
 
 const app = new Koa();
-const router = new Router();
 
 app.use(bodyParser());
 app.use(cors());
 
-router.get('/', (ctx) => {
-  ctx.status = 200;
-  ctx.body = 'TESTE';
-});
-
-app.use(router.routes()).use(router.allowedMethods());
+app.use(userRoutes.routes()).use(userRoutes.allowedMethods());
 
 export default app;
