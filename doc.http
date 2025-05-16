@@ -6,3 +6,12 @@ Content-Type: application/json
   "email": "jefferson@example.com",
   "password": "senhaSegura123"
 }
+
+### login
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "email": "jefferson@example.com",
+  "password": "senhaSegura123"
+}
