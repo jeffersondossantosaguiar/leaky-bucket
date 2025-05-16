@@ -1,8 +1,5 @@
-import bcrypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
 import { Context } from 'koa';
-import { config } from '../config.js';
-import { prisma } from '../lib/index.js';
+import { generateAuthToken } from '../services/auth.service.js';
 
 export async function login(ctx: Context) {
   const { email, password } = ctx.request.body as {
@@ -16,19 +13,7 @@ export async function login(ctx: Context) {
     return;
   }
 
-  const user = await prisma.user.findUnique({ where: { email } });
-
-  if (!user || !(await bcrypt.compare(password, user.password))) {
-    ctx.status = 401;
-    ctx.body = { message: 'Invalid credentials.' };
-    return;
-  }
-
-  const token = jwt.sign(
-    { sub: user.id, email: user.email },
-    config.JWT_SECRET,
-    { expiresIn: '1d' }
-  );
+  const token = await generateAuthToken({ email, password });
 
   ctx.status = 200;
   ctx.body = { token };
