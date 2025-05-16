@@ -1,7 +1,0 @@
-{
-  "watch": ["src"],
-  "ext": "ts",
-  "execMap": {
-    "ts": "node --loader ts-node/esm --no-warnings --experimental-specifier-resolution=node"
-  }
-}
