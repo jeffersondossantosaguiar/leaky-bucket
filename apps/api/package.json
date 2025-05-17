@@ -24,8 +24,10 @@
     "@prisma/client": "^6.8.1",
     "bcrypt": "^6.0.0",
     "dotenv": "^16.5.0",
+    "graphql": "^16.11.0",
     "jsonwebtoken": "^9.0.2",
-    "koa": "^3.0.0"
+    "koa": "^3.0.0",
+    "koa-graphql": "^0.12.0"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:^",

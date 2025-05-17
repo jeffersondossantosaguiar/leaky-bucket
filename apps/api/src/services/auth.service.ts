@@ -10,7 +10,7 @@ export async function generateAuthToken({ email, password }: { email: string, pa
     throw new Error('Unauthorized');
 
   const token = jwt.sign(
-    { sub: user.id, email: user.email },
+    { id: user.id, email: user.email },
     config.JWT_SECRET,
     { expiresIn: '1d' }
   );
