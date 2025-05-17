@@ -1,17 +1,22 @@
 import { bodyParser } from '@koa/bodyparser';
 import cors from '@koa/cors';
+import Router from '@koa/router';
 import Koa from 'koa';
-import authRoutes from './routes/auth.routes.js';
-import graphqlRoutes from './routes/graphql.routes.js';
-import userRoutes from './routes/user.routes.js';
+import { graphqlHTTP } from 'koa-graphql';
+import { config } from './config.js';
+import schema from './schema/schema.js';
 
 const app = new Koa();
+const router = new Router();
 
 app.use(bodyParser());
 app.use(cors());
 
-app.use(userRoutes.routes()).use(userRoutes.allowedMethods());
-app.use(authRoutes.routes()).use(authRoutes.allowedMethods());
-app.use(graphqlRoutes.routes()).use(graphqlRoutes.allowedMethods());
+router.all('/graphql', graphqlHTTP({
+  graphiql: config.NODE_ENV !== 'production',
+  schema,
+}));
+
+app.use(router.routes()).use(router.allowedMethods());
 
 export default app;
