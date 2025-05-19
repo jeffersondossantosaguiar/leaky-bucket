@@ -50,6 +50,9 @@ importers:
       koa-graphql:
         specifier: ^0.12.0
         version: 0.12.0(graphql@16.11.0)
+      koa-mount:
+        specifier: ^4.2.0
+        version: 4.2.0
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:^
@@ -66,6 +69,9 @@ importers:
       '@types/koa':
         specifier: ^2.15.0
         version: 2.15.0
+      '@types/koa-mount':
+        specifier: ^4.0.5
+        version: 4.0.5
       '@types/koa__cors':
         specifier: ^5.0.0
         version: 5.0.0
@@ -694,6 +700,9 @@ packages:
 
   '@types/koa-compose@3.2.8':
     resolution: {integrity: sha512-4Olc63RY+MKvxMwVknCUDhRQX1pFQoBZ/lXcRLP69PQkEpze/0cr8LNqJQe5NFb/b19DWi2a5bTi2VAlQzhJuA==}
+
+  '@types/koa-mount@4.0.5':
+    resolution: {integrity: sha512-pV1njJ7r94iqAFzT9D5sGSYKUHFGudCLAnmr4WFli7V5tJf5MAgRQK9leTPJ4gjvgr+hnTf86fZsKoFN358c7w==}
 
   '@types/koa@2.15.0':
     resolution: {integrity: sha512-7QFsywoE5URbuVnG3loe03QXuGajrnotr3gQkXcEBShORai23MePfFYdhz90FEtBBpkyIYQbVD+evKtloCgX3g==}
@@ -1572,6 +1581,10 @@ packages:
     engines: {node: '>= 10.x'}
     peerDependencies:
       graphql: ^14.7.0 || ^15.3.0
+
+  koa-mount@4.2.0:
+    resolution: {integrity: sha512-2iHQc7vbA9qLeVq5gKAYh3m5DOMMlMfIKjW/REPAS18Mf63daCJHHVXY9nbu7ivrnYn5PiPC4CE523Tf5qvjeQ==}
+    engines: {node: '>= 7.6.0'}
 
   koa@3.0.0:
     resolution: {integrity: sha512-Usyqf1o+XN618R3Jzq4S4YWbKsRtPcGpgyHXD4APdGYQQyqQ59X+Oyc7fXHS2429stzLsBiDjj6zqqYe8kknfw==}
@@ -2749,6 +2762,10 @@ snapshots:
     dependencies:
       '@types/koa': 2.15.0
 
+  '@types/koa-mount@4.0.5':
+    dependencies:
+      '@types/koa': 2.15.0
+
   '@types/koa@2.15.0':
     dependencies:
       '@types/accepts': 1.3.7
@@ -3869,6 +3886,13 @@ snapshots:
       express-graphql: 0.12.0(graphql@16.11.0)
       graphql: 16.11.0
       http-errors: 1.8.1
+
+  koa-mount@4.2.0:
+    dependencies:
+      debug: 4.4.0
+      koa-compose: 4.1.0
+    transitivePeerDependencies:
+      - supports-color
 
   koa@3.0.0:
     dependencies:
