@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import { createServer } from 'http';
 import app from './app.js';
-import { config } from './config.js';
+import { config } from './config/index.js';
 
 (async () => {
   const server = createServer(app.callback());
