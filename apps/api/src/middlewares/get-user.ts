@@ -1,8 +1,8 @@
 import jwt from 'jsonwebtoken';
 import { Context, Next } from 'koa';
-import { config } from '../../config.js';
+import { config } from '../config/index.js';
 
-export async function getUserMiddleware(ctx: Context, next: Next) {
+export async function getUser(ctx: Context, next: Next) {
   try {
     const token = ctx.header.authorization?.split(' ')[1];
 
