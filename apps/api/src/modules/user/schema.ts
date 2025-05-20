@@ -1,5 +1,5 @@
 import { GraphQLObjectType, GraphQLSchema } from 'graphql';
-import { userResolvers } from './user.resolver.js';
+import { userResolvers } from './resolver.js';
 
 const Query = new GraphQLObjectType({
   name: 'Query',

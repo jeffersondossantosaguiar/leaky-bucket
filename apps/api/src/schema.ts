@@ -1,6 +1,6 @@
 import { mergeSchemas } from '@graphql-tools/schema';
-import pixSchema from './modules/pix/pix.schema.js';
-import userSchema from './modules/user/user.schema.js';
+import pixSchema from './modules/pix/schema.js';
+import userSchema from './modules/user/schema.js';
 
 const schema = mergeSchemas({
   schemas: [userSchema, pixSchema],

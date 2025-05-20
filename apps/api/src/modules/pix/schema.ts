@@ -1,5 +1,5 @@
 import { GraphQLObjectType, GraphQLSchema } from 'graphql';
-import { pixResolvers } from './pix.resolver.js';
+import { pixResolvers } from './resolver.js';
 
 const Query = new GraphQLObjectType({
   name: 'Query',

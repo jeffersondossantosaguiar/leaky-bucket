@@ -1,4 +1,4 @@
-import { PixKey } from './pix.types.js';
+import { PixKey } from './types.js';
 
 export const keys: PixKey[] = [
   {
