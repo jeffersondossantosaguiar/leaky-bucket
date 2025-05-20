@@ -2,7 +2,7 @@ import { GraphQLFieldConfig, GraphQLNonNull, GraphQLString } from 'graphql';
 import { redisClient } from '../../lib/index.js';
 import { requireAuth } from '../../utils/auth.js';
 import { keys } from './samples.js';
-import { leakyBucket } from './strategy/leaky-bucket.js';
+import { tokenBucket } from './strategy/token-bucket.js';
 import { Bucket, PixKey, PixType } from './types.js';
 import { MAX_TOKENS, TTL_SECONDS } from './utils/constants.js';
 
@@ -38,10 +38,10 @@ export async function getBucket(key: string): Promise<Bucket> {
 }
 
 export async function getPixKey(userId: string, key: string) {
-  const redisKey = `leaky_bucket:${userId}`;
+  const redisKey = `token_bucket:${userId}`;
   let userBucket = await getBucket(redisKey);
 
-  userBucket = leakyBucket(userBucket);
+  userBucket = tokenBucket(userBucket);
 
   if (userBucket.tokens < 1)
     throw new Error('Rate limit exceeded. Please try again later.');

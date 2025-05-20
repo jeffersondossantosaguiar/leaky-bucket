@@ -124,7 +124,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "/home/jefferson/Backend/leaky-bucket/apps/api/src/lib/prisma",
+      "value": "/home/jefferson/Backend/token-bucket/apps/api/src/lib/prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -138,11 +138,11 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "/home/jefferson/Backend/leaky-bucket/apps/api/prisma/schema.prisma",
+    "sourceFilePath": "/home/jefferson/Backend/token-bucket/apps/api/prisma/schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": "../../../.env",
+    "rootEnvPath": null,
     "schemaEnvPath": "../../../.env"
   },
   "relativePath": "../../../prisma",

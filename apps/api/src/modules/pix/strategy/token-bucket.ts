@@ -1,7 +1,7 @@
 import { Bucket } from '../types.js';
 import { MAX_TOKENS, REFILL_INTERVAL_SECONDS } from '../utils/constants.js';
 
-export function leakyBucket(bucket: Bucket): Bucket {
+export function tokenBucket(bucket: Bucket): Bucket {
   const now = Math.floor(Date.now() / 1000); // timestamp in seconds;
   const secondsPassed = now - bucket.lastRefill;
   const tokensToAdd = Math.floor(secondsPassed / REFILL_INTERVAL_SECONDS);

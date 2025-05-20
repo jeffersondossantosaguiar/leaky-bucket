@@ -2,7 +2,7 @@ import { createRoot } from "react-dom/client";
 
 const App = () => (
   <div>
-    <h1>APP LEAKY BUCKET</h1>
+    <h1>APP TOKEN BUCKET</h1>
   </div>
 );
 

@@ -5,6 +5,8 @@ import { redisClient } from './lib/index.js';
 
 let server: ReturnType<typeof createServer>;
 
+const validPixKey = '47742663023';
+
 beforeAll(async () => {
   await redisClient.connect();
   server = createServer(app.callback());
@@ -19,7 +21,7 @@ describe('E2E GraphQL - pixKey query', () => {
   it('should return pixKey details for a valid key and token', async () => {
     const query = `
       query {
-        pixKey(key: "47742663023") {
+        pixKey(key: "${validPixKey}") {
           key
           keyType
           account {
@@ -50,6 +52,5 @@ describe('E2E GraphQL - pixKey query', () => {
     expect(response.body.data.pixKey).toHaveProperty('key', '47742663023');
     expect(response.body.data.pixKey).toHaveProperty('account');
     expect(response.body.data.pixKey).toHaveProperty('owner');
-    // Você pode continuar testando outras propriedades se necessário
   });
 });

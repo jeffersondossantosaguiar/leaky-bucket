@@ -1,4 +1,4 @@
-5. Leaky Bucket Strategy (controle de requisições)
+5. Token Bucket Strategy (controle de requisições)
 Cada usuário terá um controle individual de requisições com base em tokens:
 
 Começa com 10 tokens.

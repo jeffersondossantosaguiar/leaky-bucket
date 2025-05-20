@@ -1,8 +1,8 @@
 import { jest } from '@jest/globals';
 import { MAX_TOKENS } from '../utils/constants.js';
-import { leakyBucket } from './leaky-bucket.js';
+import { tokenBucket } from './token-bucket.js';
 
-describe('Leaky Bucket Strategy', () => {
+describe('Token Bucket Strategy', () => {
   const mockDate = (timestamp: number) => {
     jest.spyOn(Date, 'now').mockImplementation(() => timestamp * 1000);
   };
@@ -16,7 +16,7 @@ describe('Leaky Bucket Strategy', () => {
     mockDate(now);
 
     const bucket = { tokens: 3, lastRefill: now };
-    const result = leakyBucket(bucket);
+    const result = tokenBucket(bucket);
 
     expect(result.tokens).toBe(3);
     expect(result.lastRefill).toBe(now);
@@ -30,7 +30,7 @@ describe('Leaky Bucket Strategy', () => {
     // Advance time by 1 hour (3600 seconds)
     mockDate(startTime + oneHour);
 
-    const result = leakyBucket(bucket);
+    const result = tokenBucket(bucket);
 
     expect(result.tokens).toBe(4);
     expect(result.lastRefill).toBe(startTime + 3600);
@@ -44,7 +44,7 @@ describe('Leaky Bucket Strategy', () => {
     // Advance time by 2 hours
     mockDate(startTime + twoHours);
 
-    const result = leakyBucket(bucket);
+    const result = tokenBucket(bucket);
 
     expect(result.tokens).toBe(MAX_TOKENS);
     expect(result.lastRefill).toBe(startTime + 7200);
@@ -58,7 +58,7 @@ describe('Leaky Bucket Strategy', () => {
     // Advance time by 3 hours
     mockDate(startTime + treeHours);
 
-    const result = leakyBucket(bucket);
+    const result = tokenBucket(bucket);
 
     expect(result.tokens).toBe(4); // 1 initial + 3 (one per hour)
     expect(result.lastRefill).toBe(startTime + 10800);

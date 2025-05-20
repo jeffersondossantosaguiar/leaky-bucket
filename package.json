@@ -1,5 +1,5 @@
 {
-  "name": "leaky-bucket",
+  "name": "token-bucket",
   "private": true,
   "scripts": {
     "build": "turbo run build",
