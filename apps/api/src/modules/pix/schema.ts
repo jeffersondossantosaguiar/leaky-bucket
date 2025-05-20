@@ -4,7 +4,7 @@ import { pixResolvers } from './resolver.js';
 const Query = new GraphQLObjectType({
   name: 'Query',
   fields: {
-    pixKey: pixResolvers.pixKey,
+    keyCheck: pixResolvers.keyCheck,
   },
 });
 

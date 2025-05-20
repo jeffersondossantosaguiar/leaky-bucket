@@ -1,7 +1,7 @@
 import { createServer } from 'http';
 import request from 'supertest';
-import app from './app.js';
-import { redisClient } from './lib/index.js';
+import app from '../app.js';
+import { redisClient } from '../lib/index.js';
 
 let server: ReturnType<typeof createServer>;
 
@@ -21,7 +21,7 @@ describe('E2E GraphQL - pixKey query', () => {
   it('should return pixKey details for a valid key and token', async () => {
     const query = `
       query {
-        pixKey(key: "${validPixKey}") {
+        keyCheck(key: "${validPixKey}") {
           key
           keyType
           account {
@@ -49,8 +49,8 @@ describe('E2E GraphQL - pixKey query', () => {
       .send({ query })
       .expect(200);
 
-    expect(response.body.data.pixKey).toHaveProperty('key', '47742663023');
-    expect(response.body.data.pixKey).toHaveProperty('account');
-    expect(response.body.data.pixKey).toHaveProperty('owner');
+    expect(response.body.data.keyCheck).toHaveProperty('key', '47742663023');
+    expect(response.body.data.keyCheck).toHaveProperty('account');
+    expect(response.body.data.keyCheck).toHaveProperty('owner');
   });
 });

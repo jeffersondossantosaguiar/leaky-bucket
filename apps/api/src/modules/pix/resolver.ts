@@ -37,7 +37,7 @@ export async function getBucket(key: string): Promise<Bucket> {
   return newBucket;
 }
 
-export async function getPixKey(userId: string, key: string) {
+export async function keyCheck(userId: string, key: string) {
   const redisKey = `token_bucket:${userId}`;
   let userBucket = await getBucket(redisKey);
 
@@ -59,14 +59,14 @@ export async function getPixKey(userId: string, key: string) {
 }
 
 export const pixResolvers = {
-  pixKey: {
+  keyCheck: {
     type: PixType,
     args: {
       key: { type: new GraphQLNonNull(GraphQLString) }
     },
     resolve: requireAuth(async (_parentValue, { key }, ctx) => {
       const { user } = ctx;
-      return await getPixKey(user.id, key);
+      return await keyCheck(user.id, key);
     })
   } as GraphQLFieldConfig<any, any>
 };
