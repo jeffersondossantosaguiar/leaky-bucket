@@ -13,5 +13,5 @@ export default {
     '^(\\.{1,2}/.*)\\.ts$': '$1'
   },
   testPathIgnorePatterns: ['/node_modules'],
-  testMatch: ['**/*.unit.test.ts']
+  testMatch: ['**/*.e2e.test.ts']
 };

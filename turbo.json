@@ -29,6 +29,7 @@
       "cache": false,
       "persistent": true
     },
-    "test": {}
+    "test": {},
+    "test:e2e": {}
   }
 }
