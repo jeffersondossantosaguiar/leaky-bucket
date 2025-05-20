@@ -1,13 +1,10 @@
 import { GraphQLFieldConfig, GraphQLNonNull, GraphQLString } from 'graphql';
-import { config } from '../../config/index.js';
 import { redisClient } from '../../lib/index.js';
 import { requireAuth } from '../../utils/auth.js';
 import { keys } from './samples.js';
+import { leakyBucket } from './strategy/leaky-bucket.js';
 import { Bucket, PixKey, PixType } from './types.js';
-
-const MAX_TOKENS = config.MAX_BUCKET_TOKENS;
-const REFILL_INTERVAL_SECONDS = 3600; // 3600s = 1 hour
-const TTL_SECONDS = MAX_TOKENS * REFILL_INTERVAL_SECONDS;
+import { MAX_TOKENS, TTL_SECONDS } from './utils/constants.js';
 
 function findPixKeyByValue(
   value: string
@@ -40,26 +37,13 @@ export async function getBucket(key: string): Promise<Bucket> {
   return newBucket;
 }
 
-export function refillTokens(bucket: Bucket): Bucket {
-  const now = Math.floor(Date.now() / 1000); // timestamp in seconds;
-  const secondsPassed = now - bucket.lastRefill;
-  const tokensToAdd = Math.floor(secondsPassed / REFILL_INTERVAL_SECONDS);
-
-  if (tokensToAdd > 0) {
-    bucket.tokens = Math.min(MAX_TOKENS, bucket.tokens + tokensToAdd);
-    bucket.lastRefill = now;
-  }
-
-  return bucket;
-}
-
 export async function getPixKey(userId: string, key: string) {
   const redisKey = `leaky_bucket:${userId}`;
   let userBucket = await getBucket(redisKey);
 
-  userBucket = refillTokens(userBucket);
+  userBucket = leakyBucket(userBucket);
 
-  if (userBucket.tokens <= 0)
+  if (userBucket.tokens < 1)
     throw new Error('Rate limit exceeded. Please try again later.');
 
   const pixKey = findPixKeyByValue(key);
