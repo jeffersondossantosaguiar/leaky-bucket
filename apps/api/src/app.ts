@@ -16,7 +16,7 @@ app.use(getUser);
 app.use(
   mount(
     '/graphql',
-    graphqlHTTP(async (request, response, ctx) => ({
+    graphqlHTTP(async (_request, _response, ctx) => ({
       schema,
       graphiql: config.NODE_ENV !== 'production',
       context: {

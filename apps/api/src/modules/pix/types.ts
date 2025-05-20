@@ -19,6 +19,11 @@ export type PixKey = {
   keyOwnershipDate: string;
 };
 
+export type Bucket = {
+  tokens: number;
+  lastRefill: number;
+};
+
 export const PixType = new GraphQLObjectType({
   name: 'Pix',
   fields: {
