@@ -1,7 +1,5 @@
 # 🧩 Woovi Token Bucket Challenge
 
-## 📌 A FAZER
-
 ### 🔧 Backend
 
 - [x] Iniciar projeto Node.js com Koa.js + TypeScript
