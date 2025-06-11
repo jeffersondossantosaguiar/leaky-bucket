@@ -67,6 +67,7 @@ export const pixResolvers = {
     resolve: requireAuth(async (_parentValue, { key }, ctx) => {
       const { user } = ctx;
       return await keyCheck(user.id, key);
-    })
+    }),
+    description: 'Check if a Pix key exists'
   } as GraphQLFieldConfig<any, any>
 };
