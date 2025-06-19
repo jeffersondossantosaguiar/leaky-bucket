@@ -1,0 +1,55 @@
+"""Exposes a URL that specifies the behavior of this scalar."""
+directive @specifiedBy(
+  """The URL that specifies the behavior of this scalar."""
+  url: String!
+) on SCALAR
+
+"""
+Indicates exactly one field must be supplied and this field must not be `null`.
+"""
+directive @oneOf on INPUT_OBJECT
+
+type Account {
+  participant: String
+  branch: String
+  accountNumber: String
+  accountType: String
+  openingDate: String
+}
+
+type Mutation {
+  login(email: String!, password: String!): Token
+  createUser(email: String!, password: String!): User
+}
+
+type Owner {
+  type: String
+  taxIdNumber: String
+  name: String
+}
+
+type Pix {
+  key: String
+  keyType: String
+  account: Account
+  owner: Owner
+  creationDate: String
+  keyOwnershipDate: String
+}
+
+type Query {
+  me: User
+
+  """Check if a Pix key exists"""
+  keyCheck(key: String!): Pix
+}
+
+type Token {
+  token: ID
+}
+
+type User {
+  id: ID
+  email: String
+}
+

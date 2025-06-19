@@ -33,6 +33,7 @@
 ### 💻 Frontend (React + Relay)
 
 - [x] Criar projeto React com TypeScript
+- [ ] Configurar Eslint ou outra ferramenta de lint
 - [ ] Criar pagina de login
   - [x] Criar esqueleto
   - [ ] Funcionalidades
@@ -43,7 +44,7 @@
   - [ ] Criar css
 - [ ] Configurar autenticação com Bearer Token
 - [ ] Criar Home para consulta pix (formulário de consulta):
-- [ ] Configurar Relay com GraphQL
+- [x] Configurar React Relay
 - [ ] Criar mutation para iniciar consulta Pix
   - [ ] Exibir resultado da transação (sucesso/erro)
   - [ ] Adicionar feedback visual e validações

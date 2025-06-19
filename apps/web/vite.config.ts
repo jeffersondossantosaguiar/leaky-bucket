@@ -4,5 +4,5 @@ import eslint from "vite-plugin-eslint"
 import tsconfigPaths from "vite-tsconfig-paths"
 
 export default defineConfig({
-  plugins: [react(), tsconfigPaths(), eslint()]
+  plugins: [react({ babel: { plugins: ["relay"] } }), tsconfigPaths(), eslint()]
 })

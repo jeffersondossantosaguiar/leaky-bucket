@@ -7,12 +7,16 @@
     "dev": "vite --clearScreen false",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "lint": "eslint \"src/**/*.ts\""
+    "lint": "eslint \"src/**/*.ts\"",
+    "relay": "relay-compiler",
+    "get-schema": "pnpm exec get-graphql-schema http://localhost:3000/graphql > schema.graphql"
   },
   "dependencies": {
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-router": "^7.6.2"
+    "react-relay": "^20.0.0",
+    "react-router": "^7.6.2",
+    "relay-runtime": "^20.0.0"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
@@ -20,8 +24,14 @@
     "@types/node": "^22.15.3",
     "@types/react": "19.1.0",
     "@types/react-dom": "19.1.1",
+    "@types/react-relay": "^18.2.1",
+    "@types/relay-runtime": "^19.0.2",
     "@vitejs/plugin-react": "^4.4.1",
+    "babel-plugin-relay": "^20.0.0",
     "eslint": "^9.26.0",
+    "get-graphql-schema": "^2.1.2",
+    "graphql": "^16.11.0",
+    "relay-compiler": "^20.0.0",
     "typescript": "5.8.2",
     "vite": "^6.3.5",
     "vite-plugin-eslint": "^1.8.1",
