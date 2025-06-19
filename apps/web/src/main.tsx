@@ -1,9 +1,9 @@
 import { createRoot } from "react-dom/client";
+import { BrowserRouter } from 'react-router';
+import App from './App';
 
-const App = () => (
-  <div>
-    <h1>APP TOKEN BUCKET</h1>
-  </div>
+createRoot(document.getElementById("app")!).render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
 );
-
-createRoot(document.getElementById("app")!).render(<App />);

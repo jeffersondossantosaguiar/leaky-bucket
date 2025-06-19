@@ -35,12 +35,17 @@
 ### 💻 Frontend (React + Relay)
 
 - [x] Criar projeto React com TypeScript
+- [ ] Criar pagina de login
+  - [x] Criar esqueleto
+  - [ ] Funcionalidades
+  - [ ] Criar css
+- [ ] Criar pagina de registro
+  - [x] Criar esqueleto
+  - [ ] Funcionalidades
+  - [ ] Criar css
+- [ ] Configurar autenticação com Bearer Token
+- [ ] Criar Home para consulta pix (formulário de consulta):
 - [ ] Configurar Relay com GraphQL
-- [ ] Criar formulário com dois campos:
-  - [ ] Chave Pix
-  - [ ] Valor
-- [ ] Criar mutation para iniciar transação Pix
-- [ ] Exibir resultado da transação (sucesso/erro)
-- [ ] Incluir autenticação com Bearer Token nas requisições
-- [ ] Exibir número de tokens restantes (opcional)
-- [ ] Adicionar feedback visual e validações
+- [ ] Criar mutation para iniciar consulta Pix
+  - [ ] Exibir resultado da transação (sucesso/erro)
+  - [ ] Adicionar feedback visual e validações
